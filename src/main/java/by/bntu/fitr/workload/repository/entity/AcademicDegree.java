@@ -5,8 +5,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Data
 @EqualsAndHashCode
@@ -15,6 +14,9 @@ import javax.persistence.Id;
 @Entity
 public class AcademicDegree {
     @Id
-    private int id;
+    @GeneratedValue(strategy = GenerationType.TABLE, generator = "degree_generator")
+    @TableGenerator(table = "sequence", name = "degree_generator")
+    @TableGenerator(table = "sequence", name = "degree_generator")
+private Long id;
     private String name;
 }

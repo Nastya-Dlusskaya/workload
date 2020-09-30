@@ -12,10 +12,10 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Faculty {
+public class Speciality {
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE, generator = "faculty_generator")
-    @TableGenerator(table = "sequence", name = "faculty_generator")
+    @GeneratedValue(strategy = GenerationType.TABLE, generator = "spec_generator")
+    @TableGenerator(table = "sequence", name = "spec_generator")
 private Long id;
     private String name;
 }
