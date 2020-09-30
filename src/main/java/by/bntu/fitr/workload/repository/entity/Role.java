@@ -6,19 +6,23 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.TableGenerator;
 
 @Data
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Role implements GrantedAuthority {
+public class Role implements GrantedAuthority, Base2 {
 
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "role_generator")
     @TableGenerator(table = "sequence", name = "role_generator")
-private Long id;
+    private Long id;
     private String name;
 
     @Override
