@@ -2,17 +2,17 @@ package by.bntu.fitr.workload.service.util;
 
 import by.bntu.fitr.workload.converter.util.CollectionConverter;
 import by.bntu.fitr.workload.model.ObjectRef;
-import by.bntu.fitr.workload.repository.dataaccess.FindByNameRepository;
 import by.bntu.fitr.workload.repository.entity.Base;
 import by.bntu.fitr.workload.resolver.util.AbstractResolver;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
 public abstract class CrudServiceImpl<
         DTO,
         ENTITY extends Base,
-        REPOSITORY extends FindByNameRepository<ENTITY, Long>,
+        REPOSITORY extends JpaRepository<ENTITY, Long>,
         CONVERTER extends CollectionConverter<DTO, ENTITY>,
         RESOLVER extends AbstractResolver<ENTITY, REPOSITORY>> implements CrudService<DTO> {
 

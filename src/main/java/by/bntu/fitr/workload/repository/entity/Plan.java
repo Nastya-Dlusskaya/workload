@@ -5,12 +5,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.TableGenerator;
+import javax.persistence.*;
 import java.time.LocalDate;
 
 @Data
@@ -18,7 +13,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Plan implements Base {
+public class Plan implements Base2 {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "plan_generator")
     @TableGenerator(table = "sequence", name = "plan_generator")
@@ -33,4 +28,14 @@ public class Plan implements Base {
     private LocalDate startDate;
     private LocalDate endDate;
     private LocalDate approvedDate;
+
+    @Override
+    public String getName() {
+        return null;
+    }
+
+    @Override
+    public void setName(String name) {
+
+    }
 }

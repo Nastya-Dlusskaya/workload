@@ -1,7 +1,5 @@
 package by.bntu.fitr.workload.model;
 
-import by.bntu.fitr.workload.repository.entity.WorkloadResultType;
-import by.bntu.fitr.workload.repository.entity.WorkloadType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

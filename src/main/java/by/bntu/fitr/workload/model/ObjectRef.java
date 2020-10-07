@@ -11,13 +11,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class ObjectRef {
     private Long id;
-    private String qualifier;
+    private String name;
 
     public ObjectRef(Long id) {
         this.id = id;
     }
 
-    public ObjectRef(String qualifier) {
-        this.qualifier = qualifier;
+    public ObjectRef(String name) {
+        this.name = name;
     }
 }

@@ -29,7 +29,7 @@ public class UserDto implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return roles.stream()
-                .map(role -> new SimpleGrantedAuthority(role.getQualifier()))
+                .map(role -> new SimpleGrantedAuthority(role.getName()))
                 .collect(Collectors.toSet());
     }
 

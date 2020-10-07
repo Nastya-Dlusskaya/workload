@@ -5,20 +5,14 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.TableGenerator;
+import javax.persistence.*;
 
 @Data
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Lecturer implements Base {
+public class Lecturer implements Base, Base2 {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "lecturer_generator")
     @TableGenerator(table = "sequence", name = "lecturer_generator")

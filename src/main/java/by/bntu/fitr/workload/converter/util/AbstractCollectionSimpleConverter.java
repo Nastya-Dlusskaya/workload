@@ -24,7 +24,7 @@ public abstract class AbstractCollectionSimpleConverter<ENTITY extends Base2> ex
         try {
             ENTITY entity = this.entityClass.newInstance();
             entity.setId(objectRef.getId());
-            entity.setName(objectRef.getQualifier());
+            entity.setName(objectRef.getName());
             return entity;
         } catch (Exception ex) {
 

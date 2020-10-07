@@ -1,4 +1,4 @@
-package by.bntu.fitr.workload.repository.entity;
+package by.bntu.fitr.workload.model;
 
 public enum WorkloadResultType {
 
