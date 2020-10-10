@@ -18,4 +18,8 @@ public class LecturerDto extends ObjectRef{
     private ObjectRef academicDegree;
 
     private ObjectRef academicRank;
+
+    public String getFullName() {
+        return surname + " " + getName() + " " + patronymic;
+    }
 }

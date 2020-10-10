@@ -6,13 +6,14 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.persistence.Entity;
 
 @Data
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
-@javax.persistence.Entity
-public class Lecturer implements Entity, NamedEntity {
+@Entity
+public class Lecturer implements NamedEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "lecturer_generator")
     @TableGenerator(table = "sequence", name = "lecturer_generator", allocationSize = 1)
