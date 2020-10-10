@@ -1,6 +1,6 @@
 package by.bntu.fitr.workload.repository.entity;
 
-public interface Base {
+public interface Entity {
 
     Long getId();
 

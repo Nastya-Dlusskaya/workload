@@ -16,10 +16,10 @@ import javax.persistence.TableGenerator;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Faculty implements Base2 {
+public class Faculty implements NamedEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "faculty_generator")
-    @TableGenerator(table = "sequence", name = "faculty_generator")
+    @TableGenerator(table = "sequence", name = "faculty_generator", allocationSize = 1)
     private Long id;
     private String name;
 }

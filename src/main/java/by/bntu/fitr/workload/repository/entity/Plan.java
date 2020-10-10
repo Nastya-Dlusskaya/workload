@@ -6,6 +6,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.persistence.Entity;
 import java.time.LocalDate;
 
 @Data
@@ -13,10 +14,10 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Plan implements Base2 {
+public class Plan implements NamedEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "plan_generator")
-    @TableGenerator(table = "sequence", name = "plan_generator")
+    @TableGenerator(table = "sequence", name = "plan_generator", allocationSize = 1)
     private Long id;
 
     @ManyToOne

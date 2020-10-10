@@ -1,11 +1,11 @@
 package by.bntu.fitr.workload.converter.util;
 
 import by.bntu.fitr.workload.model.ObjectRef;
-import by.bntu.fitr.workload.repository.entity.Base2;
+import by.bntu.fitr.workload.repository.entity.NamedEntity;
 
 import java.lang.reflect.ParameterizedType;
 
-public abstract class AbstractSimpleConverter<ENTITY extends Base2> implements Converter<ObjectRef, ENTITY> {
+public abstract class AbstractSimpleConverter<ENTITY extends NamedEntity> implements Converter<ObjectRef, ENTITY> {
 
     private final Class<ENTITY> entityClass;
 

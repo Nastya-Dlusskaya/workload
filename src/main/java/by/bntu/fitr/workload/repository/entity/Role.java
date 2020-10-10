@@ -17,11 +17,11 @@ import javax.persistence.TableGenerator;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Role implements GrantedAuthority, Base2 {
+public class Role implements GrantedAuthority, NamedEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "role_generator")
-    @TableGenerator(table = "sequence", name = "role_generator")
+    @TableGenerator(table = "sequence", name = "role_generator", allocationSize = 1)
     private Long id;
     private String name;
 

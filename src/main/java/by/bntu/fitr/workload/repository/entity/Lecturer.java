@@ -11,11 +11,11 @@ import javax.persistence.*;
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-public class Lecturer implements Base, Base2 {
+@javax.persistence.Entity
+public class Lecturer implements Entity, NamedEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "lecturer_generator")
-    @TableGenerator(table = "sequence", name = "lecturer_generator")
+    @TableGenerator(table = "sequence", name = "lecturer_generator", allocationSize = 1)
     private Long id;
     private String surname;
     private String name;

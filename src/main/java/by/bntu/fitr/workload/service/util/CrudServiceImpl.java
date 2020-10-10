@@ -2,7 +2,7 @@ package by.bntu.fitr.workload.service.util;
 
 import by.bntu.fitr.workload.converter.util.CollectionConverter;
 import by.bntu.fitr.workload.model.ObjectRef;
-import by.bntu.fitr.workload.repository.entity.Base;
+import by.bntu.fitr.workload.repository.entity.Entity;
 import by.bntu.fitr.workload.resolver.util.AbstractResolver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -11,17 +11,17 @@ import java.util.List;
 
 public abstract class CrudServiceImpl<
         DTO,
-        ENTITY extends Base,
+        ENTITY extends Entity,
         REPOSITORY extends JpaRepository<ENTITY, Long>,
         CONVERTER extends CollectionConverter<DTO, ENTITY>,
         RESOLVER extends AbstractResolver<ENTITY, REPOSITORY>> implements CrudService<DTO> {
 
     @Autowired
-    private REPOSITORY repository;
+    protected REPOSITORY repository;
     @Autowired
-    private CONVERTER converter;
+    protected CONVERTER converter;
     @Autowired
-    private RESOLVER resolver;
+    protected RESOLVER resolver;
 
     @Override
     public DTO find(Long id) {

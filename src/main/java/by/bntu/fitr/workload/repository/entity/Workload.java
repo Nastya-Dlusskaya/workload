@@ -18,10 +18,10 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Workload implements Base2 {
+public class Workload implements NamedEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "workload_generator")
-    @TableGenerator(table = "sequence", name = "workload_generator")
+    @TableGenerator(table = "sequence", name = "workload_generator", allocationSize = 1)
     private Long id;
     private String type;
 

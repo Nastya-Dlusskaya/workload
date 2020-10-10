@@ -20,4 +20,13 @@ public abstract class AbstractResolver<ENTITY, REPOSITORY extends JpaRepository<
                 null;
     }
 
+//    public ENTITY resolve(ObjectRef objectRef) {
+//        if (objectRef.getId() == null && objectRef.getName() == null) {
+//            throw new NotFoundException();
+//        }
+//        return objectRef.getId() != null ?
+//                repository.findById(objectRef.getId()).get() :
+//                repository.findByName(objectRef.getName());
+//    }
+
 }
