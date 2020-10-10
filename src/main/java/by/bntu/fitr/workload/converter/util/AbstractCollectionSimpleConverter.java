@@ -5,7 +5,6 @@ import by.bntu.fitr.workload.repository.entity.Base2;
 
 import java.lang.reflect.ParameterizedType;
 
-//используется когда дто - это обжект реф
 public abstract class AbstractCollectionSimpleConverter<ENTITY extends Base2> extends AbstractCollectionConverter<ObjectRef, ENTITY> {
 
     private final Class<ENTITY> entityClass;

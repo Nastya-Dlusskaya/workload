@@ -11,7 +11,7 @@ import java.time.LocalDate;
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
-public class PlanDto {
+public class PlanDto extends ObjectRef{
 
 
     private LecturerDto lecturer;

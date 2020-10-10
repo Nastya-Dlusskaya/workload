@@ -5,7 +5,6 @@ import by.bntu.fitr.workload.repository.entity.Base2;
 
 import java.lang.reflect.ParameterizedType;
 
-//используется когда не нужны листы и дто - обжект реф
 public abstract class AbstractSimpleConverter<ENTITY extends Base2> implements Converter<ObjectRef, ENTITY> {
 
     private final Class<ENTITY> entityClass;

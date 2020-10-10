@@ -5,7 +5,6 @@ import org.modelmapper.ModelMapper;
 
 import java.lang.reflect.ParameterizedType;
 
-//используется когда много полей ентити и дто совпадают
 public abstract class AbstractModelMapperConverter<DTO, ENTITY extends Base2> extends AbstractCollectionConverter<DTO, ENTITY> {
 
     private final Class<ENTITY> entityClass;

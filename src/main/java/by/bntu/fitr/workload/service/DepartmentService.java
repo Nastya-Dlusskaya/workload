@@ -15,4 +15,6 @@ public class DepartmentService extends CrudServiceImpl<ObjectRef,
         DepartmentConverter,
         DepartmentResolver> {
 
+
+
 }

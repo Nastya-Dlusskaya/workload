@@ -9,10 +9,9 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
-public class LecturerDto {
+public class LecturerDto extends ObjectRef{
 
     private String surname;
-    private String name;
     private String patronymic;
     private String email;
 
