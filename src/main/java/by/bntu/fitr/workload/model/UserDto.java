@@ -19,7 +19,6 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 public class UserDto implements UserDetails {
 
-    @Id
     private String email;
 
     private String password;
