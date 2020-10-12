@@ -6,11 +6,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.TableGenerator;
+import javax.persistence.*;
 
 @Data
 @EqualsAndHashCode
@@ -24,4 +20,8 @@ public class Group implements NamedEntity {
     @TableGenerator(table = "sequence", name = "group_generator", allocationSize = 1)
     private Long id;
     private String name;
+    private int studentCount;
+
+    @ManyToOne
+    private Speciality speciality;
 }

@@ -6,10 +6,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.TableGenerator;
+import javax.persistence.*;
 
 @Data
 @EqualsAndHashCode
@@ -22,4 +19,7 @@ public class Speciality implements NamedEntity {
     @TableGenerator(table = "sequence", name = "spec_generator", allocationSize = 1)
     private Long id;
     private String name;
+
+    @ManyToOne
+    private Department department;
 }
