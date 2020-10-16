@@ -5,12 +5,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.TableGenerator;
+import javax.persistence.*;
 import java.time.LocalDate;
 
 @Data
@@ -18,7 +13,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Workload implements NamedEntity {
+public class Workload implements BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "workload_generator")
     @TableGenerator(table = "sequence", name = "workload_generator", allocationSize = 1)
@@ -28,7 +23,6 @@ public class Workload implements NamedEntity {
     @ManyToOne
     private Subject subject;
     private int amountHours;
-    private String name;
     private LocalDate startDate;
     private LocalDate endDate;
     private String resultType;

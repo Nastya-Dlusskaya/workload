@@ -2,16 +2,18 @@ package by.bntu.fitr.workload.service.util;
 
 import by.bntu.fitr.workload.converter.util.CollectionConverter;
 import by.bntu.fitr.workload.model.ObjectRef;
-import by.bntu.fitr.workload.repository.entity.Entity;
+import by.bntu.fitr.workload.repository.entity.BaseEntity;
 import by.bntu.fitr.workload.resolver.util.AbstractResolver;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
 public abstract class CrudServiceImpl<
         DTO,
-        ENTITY extends Entity,
+        ENTITY extends BaseEntity,
         REPOSITORY extends JpaRepository<ENTITY, Long>,
         CONVERTER extends CollectionConverter<DTO, ENTITY>,
         RESOLVER extends AbstractResolver<ENTITY, REPOSITORY>> implements CrudService<DTO> {
@@ -55,5 +57,10 @@ public abstract class CrudServiceImpl<
     public void delete(Long id) {
         resolver.resolve(new ObjectRef(id));
         repository.deleteById(id);
+    }
+
+    @Override
+    public Page<DTO> findPage(Pageable pageable) {
+        return converter.convertToDtoPage(repository.findAll(pageable));
     }
 }

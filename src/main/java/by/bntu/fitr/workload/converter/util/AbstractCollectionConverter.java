@@ -1,5 +1,8 @@
 package by.bntu.fitr.workload.converter.util;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+
 import java.util.Collection;
 import java.util.List;
 import java.util.Set;
@@ -32,4 +35,15 @@ public abstract class AbstractCollectionConverter<DTO, ENTITY> implements Collec
     public Set<ENTITY> convertToEntitySet(Collection<DTO> dtos) {
         return dtos.stream().map(this::convertToEntity).collect(Collectors.toSet());
     }
+
+    @Override
+    public Page<DTO> convertToDtoPage(Page<ENTITY> entities) {
+        return new PageImpl<>(entities.stream().map(this::convertToDto).collect(Collectors.toList()), entities.getPageable(), entities.getTotalElements());
+    }
+
+    @Override
+    public Page<ENTITY> convertToEntityPage(Page<DTO> dtos) {
+        return new PageImpl<>(dtos.stream().map(this::convertToEntity).collect(Collectors.toList()), dtos.getPageable(), dtos.getTotalElements());
+    }
+
 }

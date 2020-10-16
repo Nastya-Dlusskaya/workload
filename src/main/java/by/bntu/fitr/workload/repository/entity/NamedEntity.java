@@ -1,6 +1,6 @@
 package by.bntu.fitr.workload.repository.entity;
 
-public interface NamedEntity extends Entity {
+public interface NamedEntity extends BaseEntity {
 
     String getName();
 

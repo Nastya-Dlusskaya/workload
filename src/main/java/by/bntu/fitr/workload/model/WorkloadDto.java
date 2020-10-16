@@ -20,7 +20,7 @@ public class WorkloadDto extends ObjectRef{
     private LocalDate startDate;
     private LocalDate endDate;
     private WorkloadResultType resultType;
-    private Boolean isApproved;
+    private Boolean approved;
 
     private LecturerDto lecturer;
 

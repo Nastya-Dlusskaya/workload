@@ -1,11 +1,11 @@
 package by.bntu.fitr.workload.converter.util;
 
-import by.bntu.fitr.workload.repository.entity.NamedEntity;
+import by.bntu.fitr.workload.repository.entity.BaseEntity;
 import org.modelmapper.ModelMapper;
 
 import java.lang.reflect.ParameterizedType;
 
-public abstract class AbstractModelMapperConverter<DTO, ENTITY extends NamedEntity> extends AbstractCollectionConverter<DTO, ENTITY> {
+public abstract class AbstractModelMapperConverter<DTO, ENTITY extends BaseEntity> extends AbstractCollectionConverter<DTO, ENTITY> {
 
     private final Class<ENTITY> entityClass;
     private final Class<DTO> dtoClass;
