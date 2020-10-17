@@ -1,5 +1,7 @@
 package by.bntu.fitr.workload.controller.util;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +17,9 @@ public interface CrudRest<T> {
 
     @GetMapping
     List<T> findAll();
+
+    @GetMapping("/page")
+    Page<T> findPage(Pageable pageable);
 
     @GetMapping("/{id}")
     T find(@PathVariable Long id);

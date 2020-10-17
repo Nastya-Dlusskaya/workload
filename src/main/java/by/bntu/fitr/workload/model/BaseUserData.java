@@ -4,14 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
 
-import javax.persistence.Id;
-import java.util.Collection;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 @Data
 @EqualsAndHashCode
@@ -26,7 +20,7 @@ public class BaseUserData {
 
     private Set<ObjectRef> roles;
 
-    public String getFullName(){
+    public String getFullName() {
         return String.format("%s %s %s", lastName, firstName, patronymic);
     }
 }

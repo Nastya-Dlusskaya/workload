@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
-public class LecturerDto extends ObjectRef{
+public class LecturerDto extends ObjectRef {
 
     private String surname;
     private String patronymic;

@@ -11,7 +11,7 @@ import java.time.LocalDate;
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
-public class WorkloadDto extends ObjectRef{
+public class WorkloadDto extends ObjectRef {
 
     private WorkloadType type;
 

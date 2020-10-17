@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
-public class DepartmentDto extends ObjectRef{
+public class DepartmentDto extends ObjectRef {
 
     private ObjectRef faculty;
 }

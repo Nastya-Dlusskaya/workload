@@ -3,13 +3,11 @@ package by.bntu.fitr.workload.service;
 import by.bntu.fitr.workload.converter.RoleConverter;
 import by.bntu.fitr.workload.exception.NotFoundException;
 import by.bntu.fitr.workload.model.BaseUserData;
-import by.bntu.fitr.workload.model.ObjectRef;
 import by.bntu.fitr.workload.model.UserDto;
 import by.bntu.fitr.workload.repository.dataaccess.LecturerRepository;
 import by.bntu.fitr.workload.repository.dataaccess.UserRepository;
 import by.bntu.fitr.workload.repository.entity.Lecturer;
 import by.bntu.fitr.workload.repository.entity.User;
-import by.bntu.fitr.workload.resolver.LecturerResolver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -43,7 +41,7 @@ public class UserService implements UserDetailsService {
     }
 
     public BaseUserData findByEmail(String email) {
-        UserDto userDto = (UserDto)loadUserByUsername(email);
+        UserDto userDto = (UserDto) loadUserByUsername(email);
         BaseUserData baseUserData = new BaseUserData();
         baseUserData.setEmail(userDto.getUsername());
         baseUserData.setRoles(userDto.getRoles());
