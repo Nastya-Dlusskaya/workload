@@ -3,12 +3,15 @@ package by.bntu.fitr.workload.converter;
 import by.bntu.fitr.workload.converter.util.AbstractModelMapperConverter;
 import by.bntu.fitr.workload.model.DepartmentDto;
 import by.bntu.fitr.workload.repository.entity.Department;
-import by.bntu.fitr.workload.repository.entity.Faculty;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class DepartmentConverter extends AbstractModelMapperConverter<DepartmentDto, Department> {
+
+    @Autowired
+    private FacultyConverter facultyConverter;
 
     public DepartmentConverter(ModelMapper modelMapper) {
         super(modelMapper);
@@ -19,11 +22,8 @@ public class DepartmentConverter extends AbstractModelMapperConverter<Department
         Department entity = new Department();
         entity.setId(departmentDto.getId());
         entity.setName(departmentDto.getName());
-        //ToDo
-        Faculty faculty = new Faculty();
-        faculty.setId(departmentDto.getFaculty().getId());
-        faculty.setName(departmentDto.getFaculty().getName());
-        entity.setFaculty(faculty);
+
+        entity.setFaculty(facultyConverter.convertToEntity(departmentDto.getFaculty()));
         return entity;
     }
 }

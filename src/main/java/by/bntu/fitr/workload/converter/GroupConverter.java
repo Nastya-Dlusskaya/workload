@@ -3,12 +3,18 @@ package by.bntu.fitr.workload.converter;
 import by.bntu.fitr.workload.converter.util.AbstractModelMapperConverter;
 import by.bntu.fitr.workload.model.GroupDto;
 import by.bntu.fitr.workload.repository.entity.Group;
-import by.bntu.fitr.workload.repository.entity.Speciality;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class GroupConverter extends AbstractModelMapperConverter<GroupDto, Group> {
+
+    @Autowired
+    private SpecialityConverter specialityConverter;
+
+    @Autowired
+    private StreamConverter streamConverter;
 
     public GroupConverter(ModelMapper modelMapper) {
         super(modelMapper);
@@ -21,11 +27,8 @@ public class GroupConverter extends AbstractModelMapperConverter<GroupDto, Group
         entity.setName(groupDto.getName());
         entity.setStudentCount(groupDto.getStudentCount());
 
-        //ToDo
-        Speciality speciality = new Speciality();
-        speciality.setId(groupDto.getSpeciality().getId());
-        speciality.setName(groupDto.getSpeciality().getName());
-        entity.setSpeciality(speciality);
+        entity.setSpeciality(specialityConverter.convertToEntity(groupDto.getSpeciality()));
+        entity.setStream(streamConverter.convertToEntity(groupDto.getStream()));
         return entity;
     }
 }

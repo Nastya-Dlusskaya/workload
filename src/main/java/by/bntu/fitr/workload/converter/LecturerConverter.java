@@ -2,14 +2,19 @@ package by.bntu.fitr.workload.converter;
 
 import by.bntu.fitr.workload.converter.util.AbstractModelMapperConverter;
 import by.bntu.fitr.workload.model.LecturerDto;
-import by.bntu.fitr.workload.repository.entity.AcademicDegree;
-import by.bntu.fitr.workload.repository.entity.AcademicRank;
 import by.bntu.fitr.workload.repository.entity.Lecturer;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class LecturerConverter extends AbstractModelMapperConverter<LecturerDto, Lecturer> {
+
+    @Autowired
+    private AcademicRankConverter academicRankConverter;
+
+    @Autowired
+    private AcademicDegreeConverter academicDegreeConverter;
 
     public LecturerConverter(ModelMapper modelMapper) {
         super(modelMapper);
@@ -24,16 +29,9 @@ public class LecturerConverter extends AbstractModelMapperConverter<LecturerDto,
         entity.setPatronymic(lecturerDto.getPatronymic());
         entity.setEmail(lecturerDto.getEmail());
 
-        //ToDo
-        AcademicRank rank = new AcademicRank();
-        rank.setId(lecturerDto.getAcademicRank().getId());
-        rank.setName(lecturerDto.getAcademicRank().getName());
-        entity.setAcademicRank(rank);
+        entity.setAcademicRank(academicRankConverter.convertToEntity(lecturerDto.getAcademicRank()));
 
-        AcademicDegree degree = new AcademicDegree();
-        degree.setId(lecturerDto.getAcademicDegree().getId());
-        degree.setName(lecturerDto.getAcademicDegree().getName());
-        entity.setAcademicDegree(degree);
+        entity.setAcademicDegree(academicDegreeConverter.convertToEntity(lecturerDto.getAcademicDegree()));
         return entity;
     }
 }

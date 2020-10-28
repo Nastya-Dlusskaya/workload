@@ -23,7 +23,7 @@ public abstract class AbstractCollectionConverter<DTO, ENTITY> implements Collec
 
     @Override
     public List<ENTITY> convertToEntityList(Collection<DTO> dtos) {
-        return dtos.stream().map(this::convertToEntity).collect(Collectors.toList());
+        return dtos == null || dtos.isEmpty()? null : dtos.stream().map(this::convertToEntity).collect(Collectors.toList());
     }
 
     @Override

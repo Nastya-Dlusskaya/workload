@@ -5,7 +5,7 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public enum WorkloadResultType {
+public enum EducationWorkloadType {
 
     LECTURE("Лекции"),
     PRACTISE("Практические и семинарские занятия"),

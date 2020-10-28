@@ -24,12 +24,14 @@ public class WorkloadConverter extends AbstractModelMapperConverter<WorkloadDto,
     public Workload convertToEntity(WorkloadDto workloadDto) {
         Workload entity = new Workload();
         entity.setId(workloadDto.getId());
+        entity.setName(workloadDto.getName());
         entity.setType(workloadDto.getType().name());
         entity.setAmountHours(workloadDto.getAmountHours());
         entity.setStartDate(workloadDto.getStartDate());
         entity.setEndDate(workloadDto.getEndDate());
         entity.setResultType(workloadDto.getResultType().name());
         entity.setIsApproved(workloadDto.getApproved());
+        entity.setNotes(workloadDto.getNote());
 
         entity.setSubject(subjectConverter.convertToEntity(workloadDto.getSubject()));
         entity.setLecturer(lecturerConverter.convertToEntity(workloadDto.getLecturer()));

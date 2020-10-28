@@ -6,8 +6,10 @@ import by.bntu.fitr.workload.model.ObjectRef;
 import by.bntu.fitr.workload.repository.dataaccess.GroupRepository;
 import by.bntu.fitr.workload.repository.entity.Group;
 import by.bntu.fitr.workload.repository.entity.Speciality;
+import by.bntu.fitr.workload.repository.entity.Stream;
 import by.bntu.fitr.workload.resolver.GroupResolver;
 import by.bntu.fitr.workload.resolver.SpecialityResolver;
+import by.bntu.fitr.workload.resolver.StreamResolver;
 import by.bntu.fitr.workload.service.util.CrudServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,12 +24,17 @@ public class GroupService extends CrudServiceImpl<GroupDto,
     @Autowired
     private SpecialityResolver specialityResolver;
 
+    @Autowired
+    private StreamResolver streamResolver;
+
     @Override
     public GroupDto create(GroupDto groupDto) {
-        Speciality faculty = specialityResolver.resolve(groupDto.getSpeciality());
+        Speciality speciality = specialityResolver.resolve(groupDto.getSpeciality());
+        Stream stream = streamResolver.resolve(groupDto.getStream());
         Group entity = converter.convertToEntity(groupDto);
         entity.setId(null);
-        entity.setSpeciality(faculty);
+        entity.setSpeciality(speciality);
+        entity.setStream(stream);
         entity = repository.save(entity);
         return converter.convertToDto(entity);
     }
@@ -37,10 +44,13 @@ public class GroupService extends CrudServiceImpl<GroupDto,
         resolver.resolve(new ObjectRef(id));
 
         Group entity = converter.convertToEntity(groupDto);
-        Speciality faculty = specialityResolver.resolve(groupDto.getSpeciality());
+        Speciality speciality = specialityResolver.resolve(groupDto.getSpeciality());
+        Stream stream = streamResolver.resolve(groupDto.getStream());
 
         entity.setId(id);
-        entity.setSpeciality(faculty);
+        entity.setSpeciality(speciality);
+        entity.setStream(stream);
+
 
         entity = repository.save(entity);
         return converter.convertToDto(entity);

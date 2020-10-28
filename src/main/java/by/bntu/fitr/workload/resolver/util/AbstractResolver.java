@@ -5,6 +5,9 @@ import by.bntu.fitr.workload.model.ObjectRef;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 public abstract class AbstractResolver<ENTITY, REPOSITORY extends JpaRepository<ENTITY, Long>> implements Resolver<ENTITY> {
 
     @Autowired
@@ -20,13 +23,9 @@ public abstract class AbstractResolver<ENTITY, REPOSITORY extends JpaRepository<
                 null;
     }
 
-//    public ENTITY resolve(ObjectRef objectRef) {
-//        if (objectRef.getId() == null && objectRef.getName() == null) {
-//            throw new NotFoundException();
-//        }
-//        return objectRef.getId() != null ?
-//                repository.findById(objectRef.getId()).get() :
-//                repository.findByName(objectRef.getName());
-//    }
+    @Override
+    public List<ENTITY> resolve(List<ObjectRef> objectRefs) {
+        return objectRefs.stream().map(this::resolve).collect(Collectors.toList());
+    }
 
 }

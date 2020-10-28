@@ -14,13 +14,17 @@ import java.time.LocalDate;
 public class WorkloadDto extends ObjectRef {
 
     private WorkloadType type;
+    private String name;
 
     private ObjectRef subject;
     private int amountHours;
     private LocalDate startDate;
     private LocalDate endDate;
-    private WorkloadResultType resultType;
+    private LocalDate workDate;
+    private EducationWorkloadType resultType;
     private Boolean approved;
+
+    private String note;
 
     private LecturerDto lecturer;
 
