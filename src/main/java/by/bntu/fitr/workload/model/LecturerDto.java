@@ -14,10 +14,19 @@ public class LecturerDto extends ObjectRef {
     private String surname;
     private String patronymic;
     private String email;
+    private String homePhone;
+    private String mobilePhone;
+    private String workPhone;
+    private String skype;
+    private Boolean staff;
+    private Boolean budget;
+    private Boolean hourPaid;
 
     private ObjectRef academicDegree;
 
     private ObjectRef academicRank;
+
+    private ObjectRef position;
 
     public String getFullName() {
         return surname + " " + getName() + " " + patronymic;

@@ -20,4 +20,12 @@ public class ObjectRef {
     public ObjectRef(String name) {
         this.name = name;
     }
+
+    public static ObjectRef toObjectRef(Long id) {
+        return new ObjectRef(id);
+    }
+
+    public static ObjectRef toObjectRef(Long id, String name) {
+        return new ObjectRef(id, name);
+    }
 }

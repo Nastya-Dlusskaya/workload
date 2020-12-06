@@ -16,6 +16,9 @@ public class LecturerConverter extends AbstractModelMapperConverter<LecturerDto,
     @Autowired
     private AcademicDegreeConverter academicDegreeConverter;
 
+    @Autowired
+    private PositionConverter positionConverter;
+
     public LecturerConverter(ModelMapper modelMapper) {
         super(modelMapper);
     }
@@ -28,10 +31,17 @@ public class LecturerConverter extends AbstractModelMapperConverter<LecturerDto,
         entity.setSurname(lecturerDto.getSurname());
         entity.setPatronymic(lecturerDto.getPatronymic());
         entity.setEmail(lecturerDto.getEmail());
+        entity.setMobilePhone(lecturerDto.getMobilePhone());
+        entity.setHomePhone(lecturerDto.getHomePhone());
+        entity.setWorkPhone(lecturerDto.getWorkPhone());
+        entity.setSkype(lecturerDto.getSkype());
+        entity.setHourPaid(lecturerDto.getHourPaid());
+        entity.setStaff(lecturerDto.getStaff());
+        entity.setBudget(lecturerDto.getBudget());
 
         entity.setAcademicRank(academicRankConverter.convertToEntity(lecturerDto.getAcademicRank()));
-
         entity.setAcademicDegree(academicDegreeConverter.convertToEntity(lecturerDto.getAcademicDegree()));
+        entity.setPosition(positionConverter.convertToEntity(lecturerDto.getPosition()));
         return entity;
     }
 }

@@ -5,13 +5,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.TableGenerator;
+import javax.persistence.*;
 
 @Data
 @EqualsAndHashCode
@@ -28,10 +22,22 @@ public class Lecturer implements NamedEntity {
     private String patronymic;
     @Column(unique = true)
     private String email;
+    private String homePhone;
+    private String mobilePhone;
+    private String workPhone;
+    private String skype;
+    private Boolean staff;
+    private Boolean budget;
+    private Boolean hourPaid;
 
     @ManyToOne
     private AcademicDegree academicDegree;
 
     @ManyToOne
     private AcademicRank academicRank;
+
+    @ManyToOne
+    private Position position;
+
+
 }

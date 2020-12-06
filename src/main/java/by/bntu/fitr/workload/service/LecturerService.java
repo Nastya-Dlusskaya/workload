@@ -3,6 +3,7 @@ package by.bntu.fitr.workload.service;
 import by.bntu.fitr.workload.converter.LecturerConverter;
 import by.bntu.fitr.workload.model.LecturerDto;
 import by.bntu.fitr.workload.model.ObjectRef;
+import by.bntu.fitr.workload.model.RoleType;
 import by.bntu.fitr.workload.repository.dataaccess.LecturerRepository;
 import by.bntu.fitr.workload.repository.entity.AcademicDegree;
 import by.bntu.fitr.workload.repository.entity.AcademicRank;
@@ -27,6 +28,9 @@ public class LecturerService extends CrudServiceImpl<LecturerDto,
     @Autowired
     private AcademicDegreeResolver academicDegreeResolver;
 
+    @Autowired
+    private UserService userService;
+
     @Override
     public LecturerDto create(LecturerDto lecturerDto) {
         AcademicDegree degree = academicDegreeResolver.resolve(lecturerDto.getAcademicDegree());
@@ -37,6 +41,8 @@ public class LecturerService extends CrudServiceImpl<LecturerDto,
         entity.setAcademicDegree(degree);
         entity.setAcademicRank(rank);
         entity = repository.save(entity);
+
+        userService.create(lecturerDto.getEmail(), RoleType.ADMIN);
 
         return converter.convertToDto(entity);
     }
