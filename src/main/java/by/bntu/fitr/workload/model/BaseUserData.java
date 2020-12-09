@@ -13,6 +13,7 @@ import java.util.Set;
 @AllArgsConstructor
 public class BaseUserData {
 
+    private Long id;
     private String email;
     private String firstName;
     private String lastName;

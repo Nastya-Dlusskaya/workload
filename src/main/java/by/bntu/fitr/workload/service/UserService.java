@@ -98,7 +98,7 @@ public class UserService implements UserDetailsService {
         baseUserData.setFirstName(lecturer.getName());
         baseUserData.setLastName(lecturer.getSurname());
         baseUserData.setPatronymic(lecturer.getPatronymic());
-
+        baseUserData.setId(lecturer.getId());
         return baseUserData;
     }
 

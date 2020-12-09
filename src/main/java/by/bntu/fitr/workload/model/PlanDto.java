@@ -13,11 +13,8 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public class PlanDto extends ObjectRef {
 
-
+    private String name;
     private LecturerDto lecturer;
-
-    private DepartmentDto department;
-
     private LocalDate startDate;
     private LocalDate endDate;
     private LocalDate approvedDate;
