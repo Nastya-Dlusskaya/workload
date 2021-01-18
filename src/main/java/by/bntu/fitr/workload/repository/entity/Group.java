@@ -20,6 +20,7 @@ public class Group implements NamedEntity {
     private Long id;
     private String name;
     private int studentCount;
+    private int course;
 
     @ManyToOne
     private Speciality speciality;

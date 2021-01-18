@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDate;
 
@@ -11,12 +12,11 @@ import java.time.LocalDate;
 @EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
 @AllArgsConstructor
-public class PlanDto extends ObjectRef {
-
+@SuperBuilder
+public class AdditionalWorkWorkloadSheetRow {
     private String name;
-    private LecturerDto lecturer;
+    private int hours;
     private LocalDate startDate;
     private LocalDate endDate;
-    private LocalDate approvedDate;
     private String note;
 }

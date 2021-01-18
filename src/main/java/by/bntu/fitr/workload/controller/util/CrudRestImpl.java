@@ -10,7 +10,7 @@ import java.util.List;
 public abstract class CrudRestImpl<DTO, SERVICE extends CrudService<DTO>> implements CrudRest<DTO> {
 
     @Autowired
-    private SERVICE service;
+    protected SERVICE service;
 
     @Override
     public DTO find(Long id) {

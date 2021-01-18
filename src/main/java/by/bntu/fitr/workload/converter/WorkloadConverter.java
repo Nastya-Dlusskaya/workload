@@ -16,6 +16,12 @@ public class WorkloadConverter extends AbstractModelMapperConverter<WorkloadDto,
     @Autowired
     private SubjectConverter subjectConverter;
 
+    @Autowired
+    private PlanConverter planConverter;
+
+    @Autowired
+    private StreamConverter streamConverter;
+
     public WorkloadConverter(ModelMapper modelMapper) {
         super(modelMapper);
     }
@@ -28,14 +34,22 @@ public class WorkloadConverter extends AbstractModelMapperConverter<WorkloadDto,
         entity.setType(workloadDto.getType().name());
         entity.setAmountHours(workloadDto.getAmountHours());
         entity.setStartDate(workloadDto.getStartDate());
+        entity.setWorkDate(workloadDto.getWorkDate());
         entity.setEndDate(workloadDto.getEndDate());
-        entity.setResultType(workloadDto.getResultType().name());
+        entity.setResultType(getResultType(workloadDto));
         entity.setIsApproved(workloadDto.getApproved());
         entity.setNotes(workloadDto.getNote());
+        entity.setResultForm(workloadDto.getResultForm());
 
         entity.setSubject(subjectConverter.convertToEntity(workloadDto.getSubject()));
         entity.setLecturer(lecturerConverter.convertToEntity(workloadDto.getLecturer()));
+        entity.setPlan(planConverter.convertToEntity(workloadDto.getPlan()));
+        entity.setStream(streamConverter.convertToEntity(workloadDto.getStream()));
 
         return entity;
+    }
+
+    private String getResultType(WorkloadDto workloadDto) {
+        return workloadDto.getResultType() == null ? null : workloadDto.getResultType().getValue();
     }
 }

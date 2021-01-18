@@ -19,6 +19,9 @@ public class StreamConverter extends AbstractModelMapperConverter<StreamDto, Str
 
     @Override
     public Stream convertToEntity(StreamDto streamDto) {
+        if (streamDto == null) {
+            return null;
+        }
         Stream entity = new Stream();
         entity.setId(streamDto.getId());
         entity.setName(streamDto.getName());

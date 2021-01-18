@@ -1,6 +1,5 @@
 package by.bntu.fitr.workload.resolver.util;
 
-import by.bntu.fitr.workload.exception.NotFoundException;
 import by.bntu.fitr.workload.model.ObjectRef;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -17,7 +16,7 @@ public abstract class AbstractResolver<ENTITY, REPOSITORY extends JpaRepository<
     @Override
     public ENTITY resolve(ObjectRef objectRef) {
         if (objectRef.getId() == null && objectRef.getName() == null) {
-            throw new NotFoundException();
+            return null;
         }
         return objectRef.getId() != null ?
                 repository.findById(objectRef.getId()).get() :

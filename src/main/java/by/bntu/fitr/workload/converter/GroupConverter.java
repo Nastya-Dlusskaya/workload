@@ -26,6 +26,7 @@ public class GroupConverter extends AbstractModelMapperConverter<GroupDto, Group
         entity.setId(groupDto.getId());
         entity.setName(groupDto.getName());
         entity.setStudentCount(groupDto.getStudentCount());
+        entity.setCourse(groupDto.getCourse());
 
         entity.setSpeciality(specialityConverter.convertToEntity(groupDto.getSpeciality()));
         entity.setStream(streamConverter.convertToEntity(groupDto.getStream()));

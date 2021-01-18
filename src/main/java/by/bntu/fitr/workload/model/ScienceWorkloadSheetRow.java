@@ -4,12 +4,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
 @Data
 @EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
 @AllArgsConstructor
-public class SpecialityDto extends ObjectRef {
-    private int studentCount;
-    private ObjectRef speciality;
+@SuperBuilder
+public class ScienceWorkloadSheetRow extends AdditionalWorkWorkloadSheetRow {
+    private String resultForm;
 }

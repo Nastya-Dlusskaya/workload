@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
 import java.util.List;
 
@@ -11,6 +12,10 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
 @AllArgsConstructor
-public class StreamDto extends ObjectRef{
-    private List<GroupDto> groups;
+@SuperBuilder
+public class EducationWorkloadSheetRow {
+    private String subjectName;
+    private String facultyName;
+    private String specialityName;
+    private List<EducationWorkloadSheetItem> items;
 }

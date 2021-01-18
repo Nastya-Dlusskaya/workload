@@ -25,6 +25,7 @@ public class PlanConverter extends AbstractModelMapperConverter<PlanDto, Plan> {
         entity.setEndDate(planDto.getEndDate());
         entity.setApprovedDate(planDto.getApprovedDate());
         entity.setLecturer(lecturerConverter.convertToEntity(planDto.getLecturer()));
+        entity.setNote(planDto.getNote());
         return entity;
     }
 }

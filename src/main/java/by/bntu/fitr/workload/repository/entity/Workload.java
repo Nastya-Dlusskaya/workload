@@ -21,12 +21,14 @@ public class Workload implements NamedEntity {
     private String name;
     private String type;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Subject subject;
     private int amountHours;
     private LocalDate startDate;
+    private LocalDate workDate;
     private LocalDate endDate;
     private String resultType;
+    private String resultForm;
     private Boolean isApproved;
     private String notes;
 
@@ -36,5 +38,10 @@ public class Workload implements NamedEntity {
     @ManyToOne
     private Plan plan;
 
+    @ManyToOne
+    private Stream stream;
+
     private Boolean isPlanned;
+    private Boolean approved;
+
 }

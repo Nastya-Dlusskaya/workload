@@ -26,4 +26,5 @@ public class Plan implements NamedEntity {
     private LocalDate startDate;
     private LocalDate endDate;
     private LocalDate approvedDate;
+    private String note;
 }

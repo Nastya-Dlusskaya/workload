@@ -7,19 +7,21 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum EducationWorkloadType {
 
-    LECTURE("Лекции"),
-    PRACTISE("Практические и семинарские занятия"),
-    LABORATORY("Лабораторные занятия"),
-    COURSEWORK("Курсовое проектирование"),
-    CONSULTATION("Консультации"),
-    SET_OFF("Зачёт"),
-    EXAM("Экзамены"),
-    POST_GRADUATE("Руководство и занятия с аспирантами"),
-    DIPLOMA("Дипломное проектирование"),
-    EXAM_COMMITTEE("ГЭК"),
-    FIELD_TRIP("Производственные и учебные практики"),
-    ATTENDANCE("Контрольное посещение занятий"),
-    REVIEW("Рецензирование контрольных работ");
+    LECTURE("LECTURE", "Лекции"),
+    PRACTISE("PRACTISE", "Практические и семинарские занятия"),
+    LABORATORY("LABORATORY", "Лабораторные занятия"),
+    COURSEWORK("COURSEWORK", "Курсовое проектирование"),
+    CONSULTATION("CONSULTATION", "Консультации"),
+    SET_OFF("SET_OFF", "Зачёт"),
+    EXAM("EXAM", "Экзамены"),
+    POST_GRADUATE("POST_GRADUATE", "Руководство и занятия с аспирантами"),
+    DIPLOMA("DIPLOMA", "Дипломное проектирование"),
+    EXAM_COMMITTEE("EXAM_COMMITTEE", "ГЭК"),
+    FIELD_TRIP("FIELD_TRIP", "Производственные и учебные практики"),
+    ATTENDANCE("ATTENDANCE", "Контрольное посещение занятий"),
+    REVIEW("REVIEW", "Рецензирование контрольных работ"),
+    NONE("NONE", "");
 
-    private String value;
+    private final String value;
+    private final String strongValue;
 }

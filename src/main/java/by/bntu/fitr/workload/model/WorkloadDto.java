@@ -8,13 +8,12 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDate;
 
 @Data
-@EqualsAndHashCode
+@EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
 @AllArgsConstructor
 public class WorkloadDto extends ObjectRef {
 
     private WorkloadType type;
-    private String name;
 
     private ObjectRef subject;
     private int amountHours;
@@ -23,11 +22,11 @@ public class WorkloadDto extends ObjectRef {
     private LocalDate workDate;
     private EducationWorkloadType resultType;
     private Boolean approved;
-
+    private String resultForm;
     private String note;
 
     private LecturerDto lecturer;
-
+    private StreamDto stream;
     private PlanDto plan;
 
     private Boolean isPlanned;
